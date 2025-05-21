@@ -23,8 +23,8 @@ const Projects = () => {
     <section id="sites-that-soar" className="py-20 bg-slate-100 dark:bg-slate-800 scroll-mt-24">
       <div className="max-w-5xl mx-auto text-center px-4 sm:px-6">
         <h2 className="text-3xl font-bold mb-8 text-cyan-700">Sites that Soar</h2>
-        <p className="text-base sm:text-lg text-gray-700 dark:text-gray-300 max-w-2xl mx-auto mb-12">
-          A look at web experiences we've built to soar.
+        <p className="text-base sm:text-lg font-medium text-gray-700 dark:text-gray-300 max-w-2xl mx-auto mb-12">
+          A look at web experiences we've crafted and built to soar.
         </p>
         <FadeInSection>
           <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 max-w-full overflow-hidden">

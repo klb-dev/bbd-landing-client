@@ -261,14 +261,14 @@ ${formData.message}
       >
         {formState.isSubmitting ? (
           <>
-            <span className="opacity-0">Send My Signal</span>
+            <span className="opacity-0">Send Signal</span>
                         <span className="absolute inset-0 flex items-center justify-center">
               <FaSpinner className="h-5 w-5 text-white animate-spin" />
             </span>
           </>
         ) : (
           <span className="flex items-center justify-center">
-            Send My Signal
+            Send Signal
             <FaArrowRight className="h-5 w-5 ml-2" />
           </span>
         )}

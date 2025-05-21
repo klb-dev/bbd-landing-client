@@ -19,7 +19,7 @@ const Layout = ({ children }: LayoutProps) => {
           <img className="w-15" src="/images/BBD-Logo.webp" alt="Blue Byrd Development Logo" />
 
           {/* desktop nav */}
-          <ul className="hidden md:flex gap-6 text-sm">
+          <ul className="hidden md:flex gap-6 text-md">
             {[
               { id: 'path-to-soar', label: 'Path to Soar' },
               { id: 'sites-that-soar', label: 'Sites that Soar' },
@@ -29,8 +29,8 @@ const Layout = ({ children }: LayoutProps) => {
               <li key={id}>
                 <a
                   href={`#${id}`}
-                  className={`hover:text-cyan-500 ${
-                    activeID === id ? 'text-cyan-700 font-bold' : ''
+                  className={`hover:text-[#285AA9] ${
+                    activeID === id ? 'text-[#1A3D80] font-bold' : ''
                   }`}
                 >
                   {label}
@@ -48,9 +48,9 @@ const Layout = ({ children }: LayoutProps) => {
             aria-label="Open menu"
           >
             <div className="space-y-1.5">
-              <span className="block w-6 h-0.5 bg-cyan-700 rounded"></span>
-              <span className="block w-6 h-0.5 bg-cyan-700 rounded"></span>
-              <span className="block w-6 h-0.5 bg-cyan-700 rounded"></span>
+              <span className="block w-6 h-0.5 bg-[#285AA9] rounded"></span>
+              <span className="block w-6 h-0.5 bg-[#285AA9] rounded"></span>
+              <span className="block w-6 h-0.5 bg-[#285AA9] rounded"></span>
             </div>
           </button>
         </nav>
@@ -78,7 +78,7 @@ const Layout = ({ children }: LayoutProps) => {
               />
               <motion.div
                 key="mobile-menu"
-                className="fixed top-0 right-0 h-full w-1/2 bg-slate-100  dark:bg-slate-800 shadow-lg z-40"
+                className="fixed top-0 right-0 h-full w-1/2 bg-[#fff7ed]  dark:bg-slate-800 shadow-lg z-40"
                 initial={{ x: '100%' }}
                 animate={{ x: 0 }}
                 exit={{ x: '100%' }}
@@ -89,7 +89,7 @@ const Layout = ({ children }: LayoutProps) => {
                   <button
                     onClick={() => setMenuOpen(false)}
                     aria-label="Close menu"
-                    className="absolute top-4 right-4 text-cyan-700 hover:text-cyan-500 text-4xl font-bold"
+                    className="absolute top-4 right-4 text-cyan-700 hover:text-[#285AA9] text-4xl font-bold"
                   >
                     ×
                   </button>
@@ -100,7 +100,7 @@ const Layout = ({ children }: LayoutProps) => {
                         setScrollTarget(id);
                         setMenuOpen(false);
                       }}
-                      className="hover:text-cyan-500 capitalize bg-transparent border-none focus:outline-none"
+                      className="text-xl hover:text-[#285AA9] capitalize bg-transparent border-none focus:outline-none"
                       initial={{ opacity: 0, x: 50 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.1 * i, duration: 0.4, ease: 'easeOut' }}

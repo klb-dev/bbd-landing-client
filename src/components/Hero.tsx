@@ -28,7 +28,7 @@ const Hero = () => {
             <img 
               src="/images/BBD-Logo.webp"
               alt="Blue Byrd Development Logo" 
-              className="w-24 sm:w-32 md:w-48 lg:w-56 relative z-10 mx-auto drop-shadow-[0_4px_6px_rgba(0,0,0,0.5)]" 
+              className="w-40 sm:w-48 md:w-64 lg:w-72 relative z-10 mx-auto drop-shadow-[0_4px_6px_rgba(0,0,0,0.5)]" 
             />
           </motion.div>
 
