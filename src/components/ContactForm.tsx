@@ -11,7 +11,7 @@ const isProduction =
 
 const API_URL = isProduction 
   ? "https://bbd-landing-server-production.up.railway.app" 
-  : "http://localhost:5000";
+  : "http://localhost:5173";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
