@@ -119,7 +119,7 @@ ${formData.message}
               message: "",
             });
           }}
-          className="text-cyan-600 hover:text-cyan-700 font-medium cursor-pointer"
+          className="text-[#1A3D80] hover:text-[#285AA9] font-medium cursor-pointer"
         >
           Send another message
         </button>
@@ -143,7 +143,7 @@ ${formData.message}
               required
               value={formData.name}
               onChange={handleChange}
-              className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 bg-white dark:bg-slate-800 dark:text-white focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+              className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 bg-white dark:bg-slate-800 dark:text-white focus:ring-2 focus:ring-[#285AA9] focus:border-transparent"
             />
           </div>
           <div>
@@ -157,21 +157,24 @@ ${formData.message}
               required
               value={formData.email}
               onChange={handleChange}
-              className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 bg-white dark:bg-slate-800 dark:text-white focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+              className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 bg-white dark:bg-slate-800 dark:text-white focus:ring-2 focus:ring-[#285AA9] focus:border-transparent"
             />
           </div>
         </div>
         <div className="mt-4">
-          <label htmlFor="phone" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Phone Number (Optional)</label>
+          <label htmlFor="phone" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Phone Number</label>
           <input
             id="phone"
             type="tel"
             name="phone"
             autoComplete="tel"
             placeholder="Carrier pigeon backup?"
+            required
+            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+            title="Format: 123-456-7890"
             value={formData.phone}
             onChange={handleChange}
-            className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 bg-white dark:bg-slate-800 dark:text-white focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+            className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 bg-white dark:bg-slate-800 dark:text-white focus:ring-2 focus:ring-[#285AA9] focus:border-transparent"
           />
         </div>
       </div>
@@ -187,7 +190,7 @@ ${formData.message}
               name="projectType"
               value={formData.projectType}
               onChange={handleChange}
-              className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 bg-white dark:bg-slate-800 dark:text-white focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+              className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 bg-white dark:bg-slate-800 dark:text-white focus:ring-2 focus:ring-[#285AA9] focus:border-transparent"
             >
               <option value="">Select project type</option>
               <option value="website">Website Design & Development</option>
@@ -207,7 +210,7 @@ ${formData.message}
                 name="budget"
                 value={formData.budget}
                 onChange={handleChange}
-                className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 bg-white dark:bg-slate-800 dark:text-white focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+                className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 bg-white dark:bg-slate-800 dark:text-white focus:ring-2 focus:ring-[#285AA9] focus:border-transparent"
               >
                 <option value="">Select budget range</option>
                 <option value="<5k">Less than $5,000</option>
@@ -225,7 +228,7 @@ ${formData.message}
                 name="timeframe"
                 value={formData.timeframe}
                 onChange={handleChange}
-                className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 bg-white dark:bg-slate-800 dark:text-white focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+                className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 bg-white dark:bg-slate-800 dark:text-white focus:ring-2 focus:ring-[#285AA9] focus:border-transparent"
               >
                 <option value="">Select timeframe</option>
                 <option value="asap">ASAP</option>
@@ -248,7 +251,7 @@ ${formData.message}
               value={formData.message}
               onChange={handleChange}
               rows={6}
-              className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 bg-white dark:bg-slate-800 dark:text-white focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+              className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 bg-white dark:bg-slate-800 dark:text-white focus:ring-2 focus:ring-[#285AA9] focus:border-transparent"
             />
           </div>
         </div>
