@@ -30,9 +30,19 @@ const ContactForm = () => {
     error: null as string | null
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleChange = (
+  e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
+    const { name, value } = e.target;
+
+    if (name === 'phone') {
+      const formatted = formatPhoneNumber(value);
+      setFormData((prev) => ({ ...prev, phone: formatted }));
+    } else {
+      setFormData((prev) => ({ ...prev, [name]: value }));
+    }
   };
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -127,6 +137,19 @@ const ContactForm = () => {
     );
   }
 
+  const formatPhoneNumber = (value: string) => {
+    const cleaned = value.replace(/[^\d+]/g, '');
+
+    // Ensure '+' stays at the beginning
+    let normalized = cleaned.startsWith('+') ? cleaned : '+' + cleaned;
+
+    // Remove extra '+' if user types it in middle
+    normalized = '+' + normalized.replace(/\+/g, '').slice(0, 15); // Limit total to 15 chars (E.164 max)
+
+    return normalized;
+  };
+
+
   return (
     <form onSubmit={handleSubmit} className="space-y-6 max-w-2xl mx-auto">
       <div className="bg-slate-50 dark:bg-slate-700 p-6 rounded-lg shadow-md mb-8">
@@ -168,9 +191,8 @@ const ContactForm = () => {
             type="tel"
             name="phone"
             autoComplete="tel"
-            placeholder="Carrier pigeon backup?"
+            placeholder="Carrier pigeon backup? (+1 123-456-7890)"
             required
-            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
             title="Format: 123-456-7890"
             value={formData.phone}
             onChange={handleChange}
