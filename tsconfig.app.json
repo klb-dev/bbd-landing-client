@@ -8,7 +8,9 @@
     "skipLibCheck": true,
     "baseUrl": "./src",
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@types": ["pages/types/types.ts"],      
+      "@components/*": ["components/*"]  
     },
 
     /* Bundler mode */

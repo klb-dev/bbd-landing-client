@@ -48,45 +48,45 @@ const ContactForm = () => {
         budget: formData.budget,
         timeframe: formData.timeframe,
         message: `
-Project Type: ${formData.projectType}
-Budget: ${formData.budget}
-Timeframe: ${formData.timeframe}
+          Project Type: ${formData.projectType}
+          Budget: ${formData.budget}
+          Timeframe: ${formData.timeframe}
 
-Message:
-${formData.message}
-        `
-      });
-      
-      if (response.data.success) {
-        // Show success toast
-        toast.success("Your message has been sent successfully!");
-        
-        setFormState({
-          isSubmitting: false,
-          isSubmitted: true,
-          error: null
-        });
-      } else {
-        throw new Error("Failed to send message");
-      }
-    } catch (err) {
-      const errorMessage = 
-        err instanceof Error 
-          ? err.message 
-          : "There was an error sending your message. Please try again.";
-      
-      // Show error toast
-      toast.error(errorMessage);
-      
-      setFormState({
-        isSubmitting: false,
-        isSubmitted: false,
-        error: errorMessage
-      });
-      
-      console.error("Form submission error:", err);
-    }
-  };
+          Message:
+          ${formData.message}
+                  `
+                });
+                
+                if (response.data.success) {
+                  // Show success toast
+                  toast.success("Your message has been sent successfully!");
+                  
+                  setFormState({
+                    isSubmitting: false,
+                    isSubmitted: true,
+                    error: null
+                  });
+                } else {
+                  throw new Error("Failed to send message");
+                }
+              } catch (err) {
+                const errorMessage = 
+                  err instanceof Error 
+                    ? err.message 
+                    : "There was an error sending your message. Please try again.";
+                
+                // Show error toast
+                toast.error(errorMessage);
+                
+                setFormState({
+                  isSubmitting: false,
+                  isSubmitted: false,
+                  error: errorMessage
+                });
+                
+                console.error("Form submission error:", err);
+              }
+            };
 
   if (formState.isSubmitted) {
     return (
