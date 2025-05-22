@@ -17,8 +17,8 @@ export type Message = {
   email: string;
   phone?: string;
   projectType?: ProjectType;
-  budget?: string;
-  timeframe?: string;
+  budget?: BudgetRange;
+  timeframe?: Timeframe;
   message: string;
   createdAt?: Timestamp; // or use firebase.firestore.Timestamp
   status?: string;
@@ -45,3 +45,15 @@ export type FilterStatus =
   | 'replied'
   | 'archived'
   | 'deleted'
+
+  export type BudgetRange =
+  | 'Under $5,000'
+  | '$5,000–$10,000'
+  | '$10,000–$25,000'
+  | 'Over $25,000';
+
+export type Timeframe =
+  | 'ASAP'
+  | '1–3 months'
+  | '3–6 months'
+  | 'Flexible / Not urgent';

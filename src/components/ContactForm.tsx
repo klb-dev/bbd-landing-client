@@ -188,17 +188,18 @@ const ContactForm = () => {
             <select
               id="projectType"
               name="projectType"
+              required
               value={formData.projectType}
               onChange={handleChange}
               className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 bg-white dark:bg-slate-800 dark:text-white focus:ring-2 focus:ring-[#285AA9] focus:border-transparent"
             >
               <option value="">Select project type</option>
-              <option value="website">Website Design & Development</option>
-              <option value="webapp">Web Application</option>
-              <option value="ecommerce">E-commerce Solution</option>
-              <option value="redesign">Website Redesign</option>
-              <option value="maintenance">Maintenance & Support</option>
-              <option value="other">Other</option>
+              <option value="Website Design & Development">Website Design & Development</option>
+              <option value="Web Application">Web Application</option>
+              <option value="E-commerce Solutions">E-commerce Solutions</option>
+              <option value="Website Redesign">Website Redesign</option>
+              <option value="Maintenance & Support">Maintenance & Support</option>
+              <option value="Other">Other</option>
             </select>
           </div>
           
@@ -208,16 +209,16 @@ const ContactForm = () => {
               <select
                 id="budget"
                 name="budget"
+                required
                 value={formData.budget}
                 onChange={handleChange}
                 className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 bg-white dark:bg-slate-800 dark:text-white focus:ring-2 focus:ring-[#285AA9] focus:border-transparent"
               >
-                <option value="">Select budget range</option>
-                <option value="<5k">Less than $5,000</option>
-                <option value="5-10k">$5,000 - $10,000</option>
-                <option value="10-25k">$10,000 - $25,000</option>
-                <option value="25k+">$25,000+</option>
-                <option value="not-sure">Not sure yet</option>
+                 <option value="">Select a budget</option>
+                  <option value="Under $5,000">Less than $5,000</option>
+                  <option value="$5,000–$10,000">$5,000–$10,000</option>
+                  <option value="$10,000–$25,000">$10,000–$25,000</option>
+                  <option value="Over $25,000">More than $25,000</option>
               </select>
             </div>
             
@@ -226,16 +227,16 @@ const ContactForm = () => {
               <select
                 id="timeframe"
                 name="timeframe"
+                required
                 value={formData.timeframe}
                 onChange={handleChange}
                 className="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-3 bg-white dark:bg-slate-800 dark:text-white focus:ring-2 focus:ring-[#285AA9] focus:border-transparent"
               >
-                <option value="">Select timeframe</option>
-                <option value="asap">ASAP</option>
-                <option value="1-3months">1-3 months</option>
-                <option value="3-6months">3-6 months</option>
-                <option value="6months+">6+ months</option>
-                <option value="flexible">Flexible</option>
+                  <option value="">Select a timeframe</option>
+                  <option value="ASAP">ASAP</option>
+                  <option value="1–3 months">1–3 months</option>
+                  <option value="3–6 months">3–6 months</option>
+                  <option value="Flexible / Not urgent">Flexible / Not urgent</option> 
               </select>
             </div>
           </div>
