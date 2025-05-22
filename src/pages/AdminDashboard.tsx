@@ -217,13 +217,6 @@ const exportToCSV = () => {
 
       <div className="min-h-screen bg-slate-100 dark:bg-slate-900 p-8">
         <h1 className="text-3xl font-bold text-slate-900 dark:text-white mb-6">Admin Dashboard</h1>
-        <input
-          type="text"
-          placeholder="Search by name or email..."
-          className="w-full max-w-md mb-6 px-4 py-2 border border-gray-300 rounded dark:bg-slate-800 dark:text-white"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value.toLowerCase())}
-        />
       {filteredMessages.length === 0 ? (
         <p className="text-gray-600 dark:text-gray-400">No messages in this status.</p>
       ) : (
