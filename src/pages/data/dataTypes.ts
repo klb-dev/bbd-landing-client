@@ -1,7 +1,7 @@
 import { Timestamp } from 'firebase/firestore';
 
+export const __types__ = true;
 
-// Define all valid project types
 export type ProjectType =
   | 'Website Design & Development'
   | 'Web Application'
@@ -10,7 +10,6 @@ export type ProjectType =
   | 'Maintenance & Support'
   | 'Other';
 
-// Firestore Timestamp can be any for now unless you want to import Firebase types
 export type Message = {
   id: string;
   name: string;
@@ -20,7 +19,7 @@ export type Message = {
   budget?: BudgetRange;
   timeframe?: Timeframe;
   message: string;
-  createdAt?: Timestamp; // or use firebase.firestore.Timestamp
+  createdAt?: Timestamp; 
   status?: string;
   reply?: string;
   repliedAt?: Timestamp;
@@ -35,7 +34,6 @@ export const allProjectTypes: ProjectType[] = [
   'Other',
 ];
 
-
 export type FilterStatus =
   | 'all'
   | 'new'
@@ -46,7 +44,7 @@ export type FilterStatus =
   | 'archived'
   | 'deleted'
 
-  export type BudgetRange =
+export type BudgetRange =
   | 'Under $5,000'
   | '$5,000–$10,000'
   | '$10,000–$25,000'

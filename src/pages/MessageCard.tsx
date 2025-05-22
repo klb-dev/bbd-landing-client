@@ -1,4 +1,4 @@
-import type { Message } from '../pages/types/types'; // or wherever your types.ts is located
+import type { Message } from './data/dataTypes'; // or wherever your types.ts is located
 
 
 

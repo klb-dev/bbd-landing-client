@@ -9,9 +9,9 @@ import { deleteDoc } from 'firebase/firestore';
 import MessageCard from './MessageCard';
 import FilterBar from './FilterBar'; 
 import BulkActionsBar from './BulkActionsBar';
-import type { ProjectType, Message } from '@types';
-import { allProjectTypes } from '@types';
-import type { FilterStatus } from '@types';
+import type { ProjectType, Message, FilterStatus } from '@shared/dataTypes';
+import { allProjectTypes } from '@shared/dataTypes';
+
 
 
 

@@ -1,5 +1,5 @@
-import { allProjectTypes } from '@types';
-import type { FilterStatus } from '@types';
+import { allProjectTypes } from '@shared/dataTypes';
+import type { FilterStatus } from '@shared/dataTypes';
 
 
 type FilterBarProps = {
