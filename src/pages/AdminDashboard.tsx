@@ -30,7 +30,7 @@ const AdminDashboard = () => {
   const { user, loading } = useAuth();
   const navigate = useNavigate();
   const [messages, setMessages] = useState<Message[]>([]);
-  const [filter, setFilter] = useState<'all' | 'new' | 'considering' | 'inprogress' | 'completed' | 'replied' | 'archived'>('all');
+  const [filter, setFilter] = useState<'all' | 'new' | 'considering' | 'inprogress' | 'completed' | 'replied' | 'archived' | 'deleted'>('all');
   const [loadingMessages, setLoadingMessages] = useState(true);
   const [replyToggles, setReplyToggles] = useState<{ [id: string]: boolean }>({});
   const [replyContent, setReplyContent] = useState<{ [id: string]: string }>({});
@@ -38,6 +38,12 @@ const AdminDashboard = () => {
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
+  const [selectedProjectType, setSelectedProjectType] = useState('all');
+  const projectTypes = Array.from(
+    new Set(messages.map((msg) => msg.projectType).filter(Boolean))
+  );
+
+
 
 
 
@@ -160,8 +166,12 @@ const filteredMessages = messages.filter((msg) => {
     (!startDate || (created && new Date(startDate) <= created)) &&
     (!endDate || (created && created <= new Date(endDate + 'T23:59:59')));
 
-  return matchStatus && matchSearch && matchDate;
+  const matchProjectType =
+    selectedProjectType === 'all' || msg.projectType === selectedProjectType;
+
+  return matchStatus && matchSearch && matchDate && matchProjectType;
 });
+
 
 
 const exportToCSV = () => {
@@ -196,13 +206,33 @@ const exportToCSV = () => {
   document.body.removeChild(link);
 };
 
+const statuses: typeof filter[] = [
+  'all',
+  'new',
+  'considering',
+  'inprogress',
+  'completed',
+  'replied',
+  'archived',
+  'deleted'
+];
+
+const statusCounts: Record<string, number> = statuses.reduce((acc, key) => {
+  acc[key] = key === 'all'
+    ? messages.length
+    : key === 'replied'
+      ? messages.filter((m) => !!m.reply).length
+      : messages.filter((m) => (m.status ?? 'new') === key).length;
+  return acc;
+}, {} as Record<string, number>);
+
 
   return (
     <>
       <div className="m-6 flex flex-wrap gap-3 items-center">
         {/* Filter Buttons */}
         <div className="flex flex-wrap gap-2">
-          {['all', 'new', 'considering', 'inprogress', 'completed', 'replied', 'archived'].map((status) => (
+          {statuses.map((status) => (
             <button
               key={status}
               onClick={() => setFilter(status as typeof filter)}
@@ -212,7 +242,7 @@ const exportToCSV = () => {
                   : 'bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-white'
               }`}
             >
-              {status === 'inprogress' ? 'In Progress' : status.charAt(0).toUpperCase() + status.slice(1)}
+              {status === 'inprogress' ? 'In Progress' : status.charAt(0).toUpperCase() + status.slice(1)} ({statusCounts[status]})
             </button>
           ))}
         </div>
@@ -249,6 +279,21 @@ const exportToCSV = () => {
               value={endDate}
               onChange={(e) => setEndDate(e.target.value)}
             />
+          </label>
+          <label className="text-sm text-slate-700 dark:text-white">
+            Project Type:
+            <select
+              className="ml-2 px-2 py-1 border border-gray-300 rounded dark:bg-slate-800 dark:text-white"
+              value={selectedProjectType}
+              onChange={(e) => setSelectedProjectType(e.target.value)}
+            >
+              <option value="all">All</option>
+              {projectTypes.map((type) => (
+                <option key={type} value={type}>
+                  {type}
+                </option>
+              ))}
+            </select>
           </label>
         </div>
       </div>
