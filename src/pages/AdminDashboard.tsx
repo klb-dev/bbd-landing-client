@@ -181,7 +181,7 @@ const exportToCSV = () => {
 
   return (
     <>
-      <div className="mb-6 flex flex-wrap gap-3 items-center">
+      <div className="m-6 flex flex-wrap gap-3 items-center">
         {/* Filter Buttons */}
         <div className="flex flex-wrap gap-2">
           {['all', 'new', 'considering', 'inprogress', 'completed', 'replied', 'archived'].map((status) => (
@@ -214,7 +214,6 @@ const exportToCSV = () => {
           Export as CSV
         </button>
       </div>
-
       <div className="min-h-screen bg-slate-100 dark:bg-slate-900 p-8">
         <h1 className="text-3xl font-bold text-slate-900 dark:text-white mb-6">Admin Dashboard</h1>
       {filteredMessages.length === 0 ? (
