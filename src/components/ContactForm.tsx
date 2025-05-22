@@ -138,15 +138,25 @@ const ContactForm = () => {
   }
 
   const formatPhoneNumber = (value: string) => {
-    const cleaned = value.replace(/[^\d+]/g, '');
+    const raw = value.replace(/[^\d+]/g, '');
 
-    // Ensure '+' stays at the beginning
-    let normalized = cleaned.startsWith('+') ? cleaned : '+' + cleaned;
+    if (raw.startsWith('+')) {
+      const international = '+' + raw.replace(/\+/g, '').slice(0, 15);
+      return international;
+    }
 
-    // Remove extra '+' if user types it in middle
-    normalized = '+' + normalized.replace(/\+/g, '').slice(0, 15); // Limit total to 15 chars (E.164 max)
+    if (/^\d{10}$/.test(raw)) {
+      const area = raw.slice(0, 3);
+      const prefix = raw.slice(3, 6);
+      const line = raw.slice(6);
+      return `+1 ${area}-${prefix}-${line}`;
+    }
 
-    return normalized;
+    if (/^\d{11,15}$/.test(raw)) {
+      return '+' + raw.slice(0, 15);
+    }
+
+    return raw;
   };
 
 
