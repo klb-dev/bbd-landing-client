@@ -36,6 +36,9 @@ const AdminDashboard = () => {
   const [replyContent, setReplyContent] = useState<{ [id: string]: string }>({});
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
+  const [startDate, setStartDate] = useState('');
+  const [endDate, setEndDate] = useState('');
+
 
 
 
@@ -141,10 +144,25 @@ const sendReply = async (id: string) => {
 
 
 const filteredMessages = messages.filter((msg) => {
-  const matchStatus = filter === 'all' ? true : (filter === 'replied' ? !!msg.reply : (msg.status ?? 'new') === filter);
-  const matchSearch = msg.name.toLowerCase().includes(searchQuery) || msg.email.toLowerCase().includes(searchQuery);
-  return matchStatus && matchSearch;
+  const matchStatus =
+    filter === 'all'
+      ? true
+      : filter === 'replied'
+        ? !!msg.reply
+        : (msg.status ?? 'new') === filter;
+
+  const matchSearch =
+    msg.name.toLowerCase().includes(searchQuery) ||
+    msg.email.toLowerCase().includes(searchQuery);
+
+  const created = msg.createdAt?.toDate?.();
+  const matchDate =
+    (!startDate || (created && new Date(startDate) <= created)) &&
+    (!endDate || (created && created <= new Date(endDate + 'T23:59:59')));
+
+  return matchStatus && matchSearch && matchDate;
 });
+
 
 const exportToCSV = () => {
   const headers = [
@@ -213,6 +231,26 @@ const exportToCSV = () => {
         >
           Export as CSV
         </button>
+        <div className="flex flex-wrap gap-2 items-center">
+          <label className="text-sm text-slate-700 dark:text-white">
+            From:
+            <input
+              type="date"
+              className="ml-2 px-2 py-1 border border-gray-300 rounded dark:bg-slate-800 dark:text-white"
+              value={startDate}
+              onChange={(e) => setStartDate(e.target.value)}
+            />
+          </label>
+          <label className="text-sm text-slate-700 dark:text-white">
+            To:
+            <input
+              type="date"
+              className="ml-2 px-2 py-1 border border-gray-300 rounded dark:bg-slate-800 dark:text-white"
+              value={endDate}
+              onChange={(e) => setEndDate(e.target.value)}
+            />
+          </label>
+        </div>
       </div>
       <div className="min-h-screen bg-slate-100 dark:bg-slate-900 p-8">
         <h1 className="text-3xl font-bold text-slate-900 dark:text-white mb-6">Admin Dashboard</h1>
@@ -251,18 +289,29 @@ const exportToCSV = () => {
                     ⋮
                   </button>
                   <div className="absolute right-0 mt-1 bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-600 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-10">
-                    <button
-                      onClick={() => updateStatus(msg.id, 'archived')}
-                      className="block w-full px-4 py-2 text-left text-sm text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-slate-700"
-                    >
-                      Archive
-                    </button>
-                    <button
-                      onClick={() => deleteMessage(msg.id)}
-                      className="block w-full px-4 py-2 text-left text-sm text-red-600 hover:bg-red-100 dark:hover:bg-red-900"
-                    >
-                      Delete
-                    </button>
+                    {msg.status === 'deleted' ? (
+                      <button
+                        onClick={() => updateStatus(msg.id, 'archived')}
+                        className="block w-full px-4 py-2 text-left text-sm text-green-600 hover:bg-green-100 dark:hover:bg-green-900"
+                      >
+                        Restore
+                      </button>
+                    ) : (
+                      <>
+                        <button
+                          onClick={() => updateStatus(msg.id, 'archived')}
+                          className="block w-full px-4 py-2 text-left text-sm text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-slate-700"
+                        >
+                          Archive
+                        </button>
+                        <button
+                          onClick={() => deleteMessage(msg.id)}
+                          className="block w-full px-4 py-2 text-left text-sm text-red-600 hover:bg-red-100 dark:hover:bg-red-900"
+                        >
+                          Delete
+                        </button>
+                      </>
+                    )}
                   </div>
                 </div>
               </div>
