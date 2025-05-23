@@ -144,7 +144,7 @@ const sendReply = async (id: string) => {
 
 
   try {
-    const response = await fetch('/api/contact', {
+    const response = await fetch('bbd-landing-server-production.up.railway.app', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
