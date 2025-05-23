@@ -66,19 +66,19 @@ const MessageCard = ({
               <>
                 <button
                   onClick={() => onUpdateStatus(msg.id, 'considering')}
-                  className="btn btn-sm bg-yellow-200 text-yellow-800 hover:bg-yellow-300"
+                  className="text-yellow-800 hover:bg-yellow-300"
                 >
                   Considering
                 </button>
                 <button
                   onClick={() => onUpdateStatus(msg.id, 'inprogress')}
-                  className="btn btn-sm bg-blue-200 text-blue-800 hover:bg-blue-300"
+                  className="text-blue-800 hover:bg-blue-300"
                 >
                   In Progress
                 </button>
                 <button
                   onClick={() => onUpdateStatus(msg.id, 'completed')}
-                  className="btn btn-sm bg-green-200 text-green-800 hover:bg-green-300"
+                  className="text-green-800 hover:bg-green-300"
                 >
                   Completed
                 </button>
