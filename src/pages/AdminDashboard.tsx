@@ -155,11 +155,19 @@ const sendReply = async (id: string) => {
       }),
     });
 
-      if (!response.ok) {
-        const errorText = await response.text();
-        console.error("Full response from server:", errorText);
-        throw new Error('Failed to send email.');
-      }
+    if (!response.ok) {
+      const errorText = await response.text(); // get the raw message
+      console.error("🔻 Server error response:", errorText);
+      throw new Error('Failed to send message');
+    }
+
+    let result;
+    try {
+      result = await response.json(); // <-- only if you know backend is sending JSON
+      console.log("✅ Response JSON:", result);
+    } catch (err) {
+      console.warn("⚠️ Could not parse JSON:", err);
+    }
 
     toast.success('Reply sent!');
 
