@@ -145,7 +145,7 @@ const sendReply = async (id: string) => {
 
   try {
     console.log("📤 Sending admin reply to:", message.email);
-    const response = await fetch('bbd-landing-server-production.up.railway.app/api/contact', {
+    const response = await fetch('https://bbd-landing-server-production.up.railway.app/api/contact', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
