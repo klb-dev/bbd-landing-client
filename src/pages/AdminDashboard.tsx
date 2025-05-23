@@ -142,7 +142,7 @@ const sendReply = async (id: string) => {
     return;
   }
 
-  
+
   try {
     const response = await fetch('/api/contact', {
       method: 'POST',
@@ -154,7 +154,11 @@ const sendReply = async (id: string) => {
       }),
     });
 
-    if (!response.ok) throw new Error('Failed to send email.');
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error("Full response from server:", errorText);
+        throw new Error('Failed to send email.');
+      }
 
     toast.success('Reply sent!');
 
