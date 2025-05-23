@@ -201,8 +201,6 @@ const filteredMessages = messages.filter((msg) => {
   return matchStatus && matchSearch && matchDate && matchProjectType;
 });
 
-
-
 const exportToCSV = () => {
   const headers = [
     "Name", "Email", "Phone", "Project Type", "Budget", "Timeframe", "Status", "Message", "Created At"
