@@ -255,11 +255,11 @@ const AdminDashboard = () => {
           onDelete={deleteMessage}
           onArchive={(id) => updateStatus(id, 'archived')}
           onRestore={(id) => updateStatus(id, 'archived')}
+          onUpdateStatus={updateStatus}
         />
       </DashboardWrapper>
     );
   }
-
 
   return (
     <>
@@ -300,6 +300,7 @@ const AdminDashboard = () => {
           onDelete={deleteMessage}
           onArchive={(id) => updateStatus(id, 'archived')}
           onRestore={(id) => updateStatus(id, 'archived')}
+          onUpdateStatus={updateStatus}
         />
       </DashboardWrapper>
     </>

@@ -14,6 +14,7 @@ type MessageCardProps = {
   onDelete: () => void;
   onArchive: () => void;
   onRestore?: () => void;
+  onUpdateStatus: (id: string, status: string) => void;
 };
 
 const MessageCard = ({
@@ -27,7 +28,8 @@ const MessageCard = ({
   onSendReply,
   onDelete,
   onArchive,
-  onRestore
+  onRestore,
+  onUpdateStatus,
 }: MessageCardProps) => {
   return (
     <li className="bg-white dark:bg-slate-800 p-4 rounded-lg shadow">
@@ -62,6 +64,24 @@ const MessageCard = ({
               </button>
             ) : (
               <>
+                <button
+                  onClick={() => onUpdateStatus(msg.id, 'considering')}
+                  className="btn btn-sm bg-yellow-200 text-yellow-800 hover:bg-yellow-300"
+                >
+                  Considering
+                </button>
+                <button
+                  onClick={() => onUpdateStatus(msg.id, 'inprogress')}
+                  className="btn btn-sm bg-blue-200 text-blue-800 hover:bg-blue-300"
+                >
+                  In Progress
+                </button>
+                <button
+                  onClick={() => onUpdateStatus(msg.id, 'completed')}
+                  className="btn btn-sm bg-green-200 text-green-800 hover:bg-green-300"
+                >
+                  Completed
+                </button>
                 <button
                   onClick={onArchive}
                   className="block w-full px-4 py-2 text-left text-sm text-gray-800 dark:text-white hover:bg-gray-100 dark:hover:bg-slate-700"

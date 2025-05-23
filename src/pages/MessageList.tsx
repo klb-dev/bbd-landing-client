@@ -13,6 +13,7 @@ type MessageListProps = {
   onDelete: (id: string) => void;
   onArchive: (id: string) => void;
   onRestore: (id: string) => void;
+  onUpdateStatus: (id: string, status: string) => void;
 };
 
 const MessageList = ({
@@ -27,6 +28,7 @@ const MessageList = ({
   onDelete,
   onArchive,
   onRestore,
+  onUpdateStatus
 }: MessageListProps) => {
   if (messages.length === 0) {
     return (
@@ -52,6 +54,7 @@ const MessageList = ({
           onDelete={() => onDelete(msg.id)}
           onArchive={() => onArchive(msg.id)}
           onRestore={() => onRestore(msg.id)}
+          onUpdateStatus={onUpdateStatus}
         />
       ))}
     </ul>
