@@ -151,6 +151,7 @@ const sendReply = async (id: string) => {
         to: message.email,
         subject: `Reply to your message`,
         body: replyText,
+        isReply: true,
       }),
     });
 
