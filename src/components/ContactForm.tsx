@@ -4,6 +4,7 @@ import { FaCheckCircle, FaArrowRight, FaSpinner } from "react-icons/fa";
 import toast from 'react-hot-toast'
 import axios from "axios"
 
+
 const isProduction = 
   window.location.hostname !== 'localhost' && 
   window.location.hostname !== '127.0.0.1';
