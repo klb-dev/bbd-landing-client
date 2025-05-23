@@ -8,7 +8,6 @@ const isProduction =
   window.location.hostname !== 'localhost' && 
   window.location.hostname !== '127.0.0.1';
 
-
 const API_URL = isProduction 
   ? "https://bbd-landing-server-production.up.railway.app" 
   : "http://localhost:5173";
@@ -42,7 +41,6 @@ const ContactForm = () => {
       setFormData((prev) => ({ ...prev, [name]: value }));
     }
   };
-
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

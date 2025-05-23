@@ -11,11 +11,6 @@ import FilterBar from './FilterBar';
 import BulkActionsBar from './BulkActionsBar';
 import type { ProjectType, Message, FilterStatus } from '@shared/dataTypes';
 import { allProjectTypes } from '@shared/dataTypes';
-
-
-
-
-
 const AdminDashboard = () => {
   const { user, loading } = useAuth();
   const navigate = useNavigate();
