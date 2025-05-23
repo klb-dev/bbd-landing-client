@@ -72,8 +72,6 @@ const FilterBar = ({
         onChange={(e) => setSearchQuery(e.target.value.toLowerCase())}
       />
 
-      {/* Exported outside to BulkActionsBar */}
-
       {/* Date range */}
       <label className="text-sm text-slate-700 dark:text-white">
         From:
