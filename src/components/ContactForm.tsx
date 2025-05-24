@@ -10,7 +10,7 @@ const isProduction =
   window.location.hostname !== '127.0.0.1';
 
 const API_URL = isProduction 
-  ? "https://bbd-landing-server-production.up.railway.app" 
+  ? import.meta.env.VITE_API_URL
   : "http://localhost:5173";
 
 const ContactForm = () => {
@@ -48,7 +48,7 @@ const ContactForm = () => {
     setFormState({ ...formState, isSubmitting: true });
     
     try {
-      // Send the form data to your API
+      
       const response = await axios.post(`${API_URL}/api/contact`, {
         name: formData.name,
         email: formData.email,
@@ -67,7 +67,7 @@ const ContactForm = () => {
                 });
                 
                 if (response.data.success) {
-                  // Show success toast
+                 
                   toast.success("Your message has been sent successfully!");
                   
                   setFormState({
@@ -84,7 +84,6 @@ const ContactForm = () => {
                     ? err.message 
                     : "There was an error sending your message. Please try again.";
                 
-                // Show error toast
                 toast.error(errorMessage);
                 
                 setFormState({
@@ -92,7 +91,6 @@ const ContactForm = () => {
                   isSubmitted: false,
                   error: errorMessage
                 });
-                
                 console.error("Form submission error:", err);
               }
             };
