@@ -62,6 +62,15 @@ Blue Byrd Development was created to establish a clean, interactive online prese
 
 This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
 
+Copyright (c) 2025 Karen Byrd  and Blue Byrd Development
+All rights reserved.
+
+This source code and associated files are the proprietary property of Blue Byrd Development (Karen Byrd).  
+Unauthorized copying, distribution, modification, or use of this material,  
+in whole or in part, is strictly prohibited without the express written  
+consent of the author.
+
+
 
 
 
