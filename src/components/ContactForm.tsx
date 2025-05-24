@@ -158,6 +158,18 @@ const ContactForm = () => {
     return raw;
   };
 
+  const isFormValid = () => {
+    return (
+      formData.name &&
+      formData.email &&
+      formData.phone &&
+      formData.projectType &&
+      formData.budget &&
+      formData.timeframe &&
+      formData.message
+    )
+  }
+
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6 max-w-2xl mx-auto">
@@ -291,8 +303,12 @@ const ContactForm = () => {
       
       <button
         type="submit"
-        disabled={formState.isSubmitting}
-        className="w-full bg-[#285AA9] hover:bg-[#294EA2] text-white font-semibold py-4 px-6 rounded-lg transition-colors shadow-lg relative overflow-hidden disabled:opacity-70 cursor-pointer"
+        disabled={formState.isSubmitting || !isFormValid()}
+        className={`w-full bg-[#285AA9] hover:bg-[#294EA2] text-white font-semibold py-4 px-6 rounded-lg transition-colors shadow-lg relative overflow-hidden ${
+          (!isFormValid() || formState.isSubmitting)
+            ? "opacity-60 cursor-not-allowed"
+            : "cursor-pointer"
+        }`}
       >
         {formState.isSubmitting ? (
           <>
