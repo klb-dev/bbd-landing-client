@@ -9,6 +9,7 @@ import Loading from '../components/ui/Loading';
 const TechCarousel = lazy(() => import('../components/TechCarousel'));
 const Testimonials = lazy(() => import('../components/Testimonials'));
 
+
 const HomePage = () => {
   useDocumentHead({
     title: 'Modern Web Development that Soars',
