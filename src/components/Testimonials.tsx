@@ -7,21 +7,21 @@ import { FaQuoteLeft, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 const testimonials = [
   {
-    name: "Jordan B.",
-    role: "Founder, TrailMix Media",
-    quote: "Blue Byrd took our idea and built a site that's fast, clean, and feels custom-built for us.",
-    logo: "/images/trailmix.webp", 
+    name: "The Byrdman",
+    role: "Founder, Born to Ride",
+    quote: "Blue Byrd Development absolutely nailed it! They took our vision and brought it to life with an animated, full-stack website that's not just lightning-fast, but was completely tailor-made for us. They truly built something special.",
+    logo: "/images/btr-Logo.webp", 
   },
   {
-    name: "Casey R.",
-    role: "Director of Marketing, NovaTech",
-    quote: "Professional, communicative, and precise. The site launched early—and better than expected.",
-    logo: "/images/novaTech.webp",
+    name: "Krystal Z.",
+    role: "Director of Marketing, Forever Home",
+    quote: "Blue Byrd Development truly delivered beyond expectations with the Forever Home application! They were professional, great at communicating, and incredibly precise. The site even launched ahead of schedule, and it turned out better than we ever imagined.",
+    logo: "/images/FH-Logo.webp",
   },
   {
-    name: "Sam A.",
-    role: "Product Manager, Velocity Labs",
-    quote: "I’ve worked with other devs before. This was the first time I didn’t have to explain the same thing twice.",
+    name: "Keily A.",
+    role: "Product Manager",
+    quote: "This time, working with Blue Byrd Development was a game-changer. Unlike past experiences with other developers, I never had to explain anything twice – they just got it right away.",
   },
 ];
 

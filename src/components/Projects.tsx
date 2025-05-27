@@ -4,17 +4,15 @@ import FadeInSection from "./ui/FadeInSection";
 const projectData = [
   {
     title: 'Born To Ride 501(c)(3)',
-    description: 'Born to Ride is a responsive landing page for a 501(c)(3) nonprofit. Built with Three.js and modern web frameworks to showcase custom design and donation functionality.',
+    description: 'Born to Ride is a non-profit that helps young people find their footing through skateboarding. Skateboarders tend to be seen as troubled. But BTR sees them differently. These young people are often incredibly creative, super determined, great at thinking through problems, and really coordinated. There\'s something truly special about the skateboarding community.',
     image: "/images/BornToRide.webp",
     link: 'https://borntoridepleasantontx.org',
-    tags: ['Three.js', 'HTML', 'CSS', 'Vanilla JS', 'Node.js', 'Express', 'Cors', 'Stripe SDK'],
   },
   {
     title: 'Forever Home',
-    description: 'Forever Home is a sophisticated web application designed to seamlessly connect prospective adopters with available pets in their vicinity. Developed using the progressive capabilities of React and the robust backend services of Firebase,the platform enables users to efficiently search for companion animals based on specific criteria, including breed, age, and geographic location.  Forever Home provides a fluid and engaging experience for individuals seeking to welcome a new pet into their lives.',
+    description: 'Forever Home is a user-friendly website that makes it easy to find pets ready for adoption in your area. You can quickly search for a new furry friend based on things like their breed, age, or how close they are to you. It\'s all about making the process of finding your perfect pet a smooth and enjoyable experience.',
     image: "/images/ForeverHome.webp",
-    link: 'https://forever-home-b1dba.web.app/',
-    tags: ['React', 'Vite', 'Node.js', 'Express', 'Axios', 'Styled-Components'],
+    link: 'https://forever-home-b1dba.web.app/'
   },
 ];
 
@@ -35,7 +33,6 @@ const Projects = () => {
                 description={project.description}
                 image={project.image}
                 link={project.link}
-                tags={project.tags} 
                 delay={index * 0.2}
               />
             ))}
