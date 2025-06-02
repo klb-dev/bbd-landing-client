@@ -1,5 +1,8 @@
 import FadeInSection from "./ui/FadeInSection";
 import ContactForm from "./ContactForm"; 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faPhone, faLocationDot, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 const Contact = () => {
   return (
@@ -16,7 +19,39 @@ const Contact = () => {
           Contact us today to discuss your project and see how we can help you achieve your goals.
         </p>
         <ContactForm />
+          <div className="mt-4 text-center text-gray-800 dark:text-gray-200 mb-10 space-y-2">
+            <p className="text-[#1A3D80]">
+              <FontAwesomeIcon icon={faPhone} className="mr-2" /> 
+              (+1) 512-960-5108
+            </p> 
+            <p className="text-[#1A3D80]">
+              <FontAwesomeIcon icon={faLocationDot} className="mr-2" />
+              United States (remote clients)
+            </p>
+            <p>
+              <a
+                href="mailto:bluebyrddevelopment@gmail.com"
+                className="text-[#1A3D80] hover:text-[#285AA9]"
+                aria-label="Email Blue Byrd Development"
+              >
+                <FontAwesomeIcon icon={faEnvelope} className="mr-2" />
+                bluebyrddevelopment@gmail.com
+              </a>
+            </p>
+            <p className="mt-4 text-[#1A3D80] hover:text-[#285AA9]">
+              <a href="https://bsky.app/profile/bluebyrddevelopment.com" className="target=_blank" rel="noopener noreferrer">
+                <i className="fa-brands fa-bluesky text-3xl text-[#1A3D80] hover:text-[#285AA9] transition-colors duration-200"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/blue-byrd/" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">
+                <FontAwesomeIcon icon={faLinkedin} className="text-[#1A3D80] hover:text-[#285AA9] text-3xl ml-4" />
+              </a>
+              <a href="https://github.com/blue-byrd-dev" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">
+                <FontAwesomeIcon icon={faGithub} className="text-[#1A3D80] hover:text-[#285AA9] text-3xl ml-4" />
+              </a>
+            </p>
+          </div>
         </div>
+        
       </FadeInSection>
     </section>
   );
