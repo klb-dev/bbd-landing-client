@@ -14,7 +14,6 @@ function App() {
         path="/"
         element = {
           <Layout>
-            <h1 style={{backgroundColor: "red", color: "white"}}>Testing deploy</h1>
             <HomePage />
           </Layout>
         }
