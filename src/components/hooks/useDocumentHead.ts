@@ -9,10 +9,7 @@ type DocumentHeadProps = {
   keywords?: string;
 };
 
-/**
- * Custom hook to manage document head metadata
- * Compatible with React 19
- */
+
 export const useDocumentHead = ({
   title,
   description,
@@ -22,12 +19,11 @@ export const useDocumentHead = ({
   keywords = 'web development, responsive websites, React, TypeScript, Tailwind CSS, Blue Byrd Development',
 }: DocumentHeadProps) => {
   const siteName = 'Blue Byrd Development';
-  const fullTitle = `${title} | ${siteName}`;
+  const fullTitle = title ? `${title} | ${siteName}`: siteName;
   
   useEffect(() => {
-    document.title = fullTitle;
-    
-    // Helper functions for updating meta tags
+    document.title = fullTitle; 
+  
     const updateMetaTag = (name: string, content: string) => {
       let element = document.querySelector(`meta[name="${name}"]`);
       
@@ -52,7 +48,6 @@ export const useDocumentHead = ({
       element.setAttribute('content', content);
     };
     
-    // Update canonical link
     let canonicalElement = document.querySelector('link[rel="canonical"]');
     if (!canonicalElement) {
       canonicalElement = document.createElement('link');
@@ -61,11 +56,9 @@ export const useDocumentHead = ({
     }
     canonicalElement.setAttribute('href', canonical);
     
-    // Update basic meta tags
-    updateMetaTag('description', description);
+    if (description) updateMetaTag('description', description);
     if (keywords) updateMetaTag('keywords', keywords);
     
-    // Update Open Graph tags
     updatePropertyTag('og:title', fullTitle);
     updatePropertyTag('og:description', description);
     updatePropertyTag('og:url', canonical);
@@ -73,7 +66,6 @@ export const useDocumentHead = ({
     updatePropertyTag('og:type', ogType);
     updatePropertyTag('og:site_name', siteName);
     
-    // Update Twitter card tags
     updateMetaTag('twitter:card', 'summary_large_image');
     updateMetaTag('twitter:title', fullTitle);
     updateMetaTag('twitter:description', description);
