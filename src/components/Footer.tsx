@@ -20,13 +20,13 @@ const Footer = () => {
         </div>
         <div className="flex justify-center gap-4 mb-4">
            <a href="https://bsky.app/profile/bluebyrddevelopment.com" className="target=_blank" rel="noopener noreferrer">
-              <i className="fa-brands fa-bluesky text-2xl text-[#FFBF1E] dark:text-[#FFCC47] hover:text-gray-200 transition-colors duration-200"></i>
+              <i className="fa-brands fa-bluesky text-2xl text-gray-200 hover:text-[#FFBF1E] transition-colors duration-200"></i>
             </a>
             <a href="https://www.linkedin.com/in/blue-byrd/" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">
-              <FontAwesomeIcon icon={faLinkedin} className="text-[#FFBF1E] dark:text-[#FFCC47] hover:text-gray-200 text-2xl ml-4" />
+              <FontAwesomeIcon icon={faLinkedin} className="text-gray-200 hover:text-[#FFBF1E] text-2xl ml-4" />
             </a>
             <a href="https://github.com/blue-byrd-dev" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">
-              <FontAwesomeIcon icon={faGithub} className="text-[#FFBF1E] dark:text-[#FFCC47] hover:text-gray-200 text-2xl ml-4" />
+              <FontAwesomeIcon icon={faGithub} className="text-gray-200 hover:text-[#FFBF1E] text-2xl ml-4" />
             </a>
         </div>
         <p className="text-center text-xs text-gray-500 dark:text-gray-500">
