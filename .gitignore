@@ -18,6 +18,7 @@ dist-ssr
 .env.development.local
 .npmrc
 .npmrc.local
+.env.test.local
 
 # Editor directories and files
 .vscode/*
