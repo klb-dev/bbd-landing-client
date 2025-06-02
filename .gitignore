@@ -16,7 +16,6 @@ dist-ssr
 .env
 .env.local
 .env.development.local
-.npmrc
 .npmrc.local
 .env.test.local
 
