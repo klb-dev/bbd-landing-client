@@ -4,6 +4,9 @@ import { FaCheckCircle, FaArrowRight, FaSpinner } from "react-icons/fa";
 import toast from 'react-hot-toast'
 import axios from "axios"
 
+type ContactFormProps = {
+  onSuccess?: () => void;
+}
 
 const isProduction = 
   window.location.hostname !== 'localhost' && 
@@ -13,7 +16,7 @@ const API_URL = isProduction
   ? import.meta.env.VITE_API_URL
   : "http://localhost:5173";
 
-const ContactForm = () => {
+const ContactForm = ({ onSuccess }: ContactFormProps) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -64,36 +67,36 @@ const ContactForm = () => {
           Message:
           ${formData.message}
                   `
-                });
+      });
                 
-                if (response.data.success) {
-                 
-                  toast.success("Your message has been sent successfully!");
-                  
-                  setFormState({
-                    isSubmitting: false,
-                    isSubmitted: true,
-                    error: null
-                  });
-                } else {
-                  throw new Error("Failed to send message");
-                }
-              } catch (err) {
-                const errorMessage = 
-                  err instanceof Error 
-                    ? err.message 
-                    : "There was an error sending your message. Please try again.";
-                
-                toast.error(errorMessage);
-                
-                setFormState({
-                  isSubmitting: false,
-                  isSubmitted: false,
-                  error: errorMessage
-                });
-                console.error("Form submission error:", err);
-              }
-            };
+      if (response.data.success) {
+        toast.success("Your message has been sent successfully!");
+        
+        setFormState({
+          isSubmitting: false,
+          isSubmitted: true,
+          error: null
+        });
+        onSuccess?.();
+      } else {
+        throw new Error("Failed to send message");
+      }
+    } catch (err) {
+      const errorMessage = 
+        err instanceof Error 
+          ? err.message 
+          : "There was an error sending your message. Please try again.";
+      
+      toast.error(errorMessage);
+      
+      setFormState({
+        isSubmitting: false,
+        isSubmitted: false,
+        error: errorMessage
+      });
+      console.error("Form submission error:", err);
+    }
+  };
 
   if (formState.isSubmitted) {
     return (
