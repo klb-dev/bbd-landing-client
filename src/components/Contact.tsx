@@ -43,7 +43,7 @@ const Contact = () => {
             <p className="text-[#1A3D80] hover:text-[#285AA9]">
               <FontAwesomeIcon icon={faPhone} className="mr-2" />
               <a href="tel:+15129605108" aria-label="Phone number for Blue Byrd Development">
-                (+1) 512-960-5108
+                (+1) 512-783-8823
               </a>
             </p>
             <p className="text-[#1A3D80]">
