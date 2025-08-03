@@ -1,7 +1,7 @@
 import FadeInSection from "./ui/FadeInSection";
 import ContactForm from "./ContactForm"; 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faPhone, faLocationDot, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { useState } from "react";
@@ -48,16 +48,16 @@ const Contact = () => {
             </p>
             <p className="text-[#1A3D80]">
               <FontAwesomeIcon icon={faLocationDot} className="mr-2" />
-              United States (remote clients)
+              United States (all remote clients)
             </p>
             <p>
               <a
-                href="mailto:bluebyrddevelopment@gmail.com"
+                href="mailto:k.byrd@bluebyrddevelopment.com"
                 className="text-[#1A3D80] hover:text-[#285AA9]"
                 aria-label="Email Blue Byrd Development"
               >
                 <FontAwesomeIcon icon={faEnvelope} className="mr-2" />
-                bluebyrddevelopment@gmail.com
+                k.byrd@bluebyrddevelopment.com
               </a>
             </p>
             <p className="mt-4 text-[#1A3D80] hover:text-[#285AA9] flex justify-center flex-wrap gap-4">
@@ -66,9 +66,6 @@ const Contact = () => {
               </a>
               <a href="https://www.linkedin.com/in/blue-byrd/" target="_blank" rel="noopener noreferrer">
                 <FontAwesomeIcon icon={faLinkedin} className="text-3xl hover:text-[#285AA9]" />
-              </a>
-              <a href="https://github.com/blue-byrd-dev" target="_blank" rel="noopener noreferrer">
-                <FontAwesomeIcon icon={faGithub} className="text-3xl hover:text-[#285AA9]" />
               </a>
               <a href="https://www.facebook.com/61577208302042/" target="_blank" rel="noopener noreferrer">
                 <FontAwesomeIcon icon={faFacebook} className="text-3xl hover:text-[#285AA9]" />
