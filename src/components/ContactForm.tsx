@@ -5,6 +5,7 @@ import toast from 'react-hot-toast'
 import axios from "axios"
 
 type ContactFormProps = {
+  formSent: boolean;
   onSuccess?: () => void;
 }
 

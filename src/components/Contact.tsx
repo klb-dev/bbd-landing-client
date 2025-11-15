@@ -9,9 +9,9 @@ import { useState } from "react";
 
 const Contact = () => {
   const [formSent, setFormSent] = useState(false);
-  const handleForSuccess = () => {
-    setFormSent(true);
-  }
+  // const handleForSuccess = () => {
+  //   setFormSent(true);
+  // }
 
   return (
     <section id="send-signal" className="py-20 bg-slate-100 dark:bg-slate-900 scroll-mt-24">
@@ -26,15 +26,13 @@ const Contact = () => {
         <p className="text-base sm:text-lg text-gray-700 dark:text-gray-300 max-w-2xl mx-auto mb-10">
           Contact us today to discuss your project and see how we can help you achieve your goals.
         </p>
-          <ContactForm onSuccess={handleForSuccess}/>
+          <ContactForm formSent={formSent} onSuccess={() => setFormSent(true)}/>
            <div className="mt-6 text-center">
             <a
-              href="https://bluebyrddev.setmore.com"
-              className={`block w-fit mx-auto px-5 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
-                formSent
-                  ? "bg-[#1a3d80] text-white hover:bg-[#285aa9]"
-                  : "bg-gray-400 text-gray-200 cursor-not-allowed pointer-events-none"
-              }`}
+              href={"https://calendar.app.google/Z95Fd56AVePkEtEXA"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-fit mx-auto px-5 py-2 rounded-md text-sm font-medium transition-colors duration-200 bg-[#1a3d80] text-white hover:bg-[#285aa9]"
             >
               Book Your Flight 
             </a>
@@ -42,7 +40,7 @@ const Contact = () => {
           <div className="mt-4 text-center text-gray-800 dark:text-gray-200 mb-10 space-y-2">
             <p className="text-[#1A3D80] hover:text-[#285AA9]">
               <FontAwesomeIcon icon={faPhone} className="mr-2" />
-              <a href="tel:+15129605108" aria-label="Phone number for Blue Byrd Development">
+              <a href="tel:+18302821648" aria-label="Phone number for Blue Byrd Development">
                 (+1) 830-282-1648
               </a>
             </p>

@@ -14,8 +14,8 @@ const Layout = ({ children }: LayoutProps) => {
 
   return (
     <>
-      <header className="sticky top-0 z-50 bg-slate-100 dark:bg-slate-900 shadow-sm">
-        <nav className="mx-auto flex items-center justify-between p-4 bg-slate-100 font-bold">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-slate-100 dark:bg-slate-900 shadow-sm">
+        <nav className="max-w-7xl w-full mx-auto flex items-center justify-between px-[10px] p-4 bg-slate-100 font-bold">
           <img className="w-15" src="/images/BBD-Logo.webp" alt="Blue Byrd Development Logo" />
 
           {/* desktop nav */}
